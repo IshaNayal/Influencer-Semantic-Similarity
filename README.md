@@ -1,75 +1,83 @@
-#Influencer Style Rewriter & Semantic Similarity Analysis
+Influencer Style Rewriter & Semantic Similarity Analysis
 
-Internship Project Report
-Author: Isha Nayal
+An end-to-end Machine Learning pipeline that rewrites sponsored influencer posts into organic-style content and evaluates how closely AI-generated posts match the influencer’s natural writing style using semantic similarity and statistical testing.
 
-1. Project Overview
+This project fine-tunes per-influencer models, generates rewrites, and provides quantitative evidence that AI-generated sponsored posts resemble organic posts better than original sponsored posts.
 
-This project develops a complete pipeline to rewrite sponsored influencer posts so that they resemble organic content while preserving the original message.
+Project Features
 
-The system uses fine-tuned language models and embedding models to generate organic-style sponsored posts and then quantitatively evaluates how closely the generated posts match the influencer's natural writing style.
+Influencer-specific model training
 
-The primary goal is to provide statistical evidence that AI-generated sponsored content matches influencer tone better than original sponsored posts.
+Sponsored → Organic style rewriting
 
-2. Objectives
+Semantic similarity analysis
 
-The main objectives of the project were:
+Post-Neighbourhood (PN) distance evaluation
 
-Rewrite sponsored posts into organic-style influencer content
+Statistical significance testing (t-test)
 
-Train per-influencer AI models
+Per-influencer evaluation
 
-Measure similarity between:
+Streamlit UI for testing rewrites
 
-Organic posts
+Reproducible ML pipeline
 
-Original sponsored posts
+Project Structure
+.
+│
+├── comprehensive_pipeline.py
+├── semantic_similarity_analysis.py
+├── influencer_semantic_similarity.py
+├── analyze_semantic_similarity.py
+│
+├── streamlit_app.py
+│
+├── organic_data.csv
+├── training_data.csv
+├── top5_influencers.csv
+│
+├── final_results.csv
+├── final_comprehensive_report.csv
+├── similarity_stats.csv
+│
+└── README.md
+Problem Statement
 
-AI-generated sponsored posts
+Sponsored influencer posts often sound unnatural and different from the influencer’s organic content.
 
-Provide quantitative evaluation
+This project solves this problem by:
 
-Build a reproducible ML pipeline
+Learning influencer writing style
 
-Develop an interactive UI for testing
+Rewriting sponsored posts
 
-3. Dataset Preparation
-Datasets Used
-1. organic_data.csv
+Measuring style similarity
+
+Providing statistical validation
+
+Workflow
+1. Data Preparation
+
+Datasets used:
+
+organic_data.csv
 
 Contains organic (non-sponsored) influencer posts.
 
-2. training_data.csv
+training_data.csv
 
-Contains sponsored posts used during early experimentation.
+Contains sponsored posts used during early experiments.
 
-3. top5_influencers.csv (Final Dataset)
+top5_influencers.csv
 
 Final dataset used for semantic analysis.
 
 Columns:
 
 non_sponsored_text
-Organic influencer posts
-
 original_sponsored_text
-Original brand-sponsored posts
-
 modified_sponsored_text
-AI-generated sponsored posts
-
-4. System Workflow
-Step 1 — Data Loading
-
-The dataset is loaded from:
-
-Hugging Face dataset:
-
-ishanayal16/influencer_data
-
-Local CSV fallback if online loading fails.
-
-Step 2 — Influencer Selection
+2. Influencer Selection
 
 The pipeline selects the top 5 influencers based on post count.
 
@@ -83,58 +91,48 @@ Evaluation set:
 
 Latest 100 posts
 
-10–15 sponsored posts selected
+10–15 sponsored posts
 
 Sponsored posts are identified using:
 
-Labels (if available)
+Dataset labels
 
 Keyword detection (fallback)
 
-Step 3 — Model Training
+Model Training
+Generator Model
 
-Two models were fine-tuned per influencer.
-
-3.1 Generator Model
-
-Base Model:
+Base model:
 
 GPT-2
 
-Method:
+Fine-tuning method:
 
-LoRA fine-tuning
+LoRA (Low Rank Adaptation)
 
 Purpose:
 
-Generate organic-style rewrites of sponsored posts.
+Generate organic-style sponsored posts.
 
-3.2 Embedding Model
+Embedding Model
 
-Base Model:
+Base model:
 
-SentenceTransformers
+sentence-transformers/all-MiniLM-L6-v2
 
-Model:
-
-all-MiniLM-L6-v2
-
-Training Method:
+Training method:
 
 SimCSE-style contrastive learning
 
 Purpose:
 
-Generate embeddings that better capture influencer style.
+Learn influencer writing style.
 
-5. Semantic Similarity Analysis
+Semantic Similarity Analysis
 Embedding Model
+sentence-transformers/all-mpnet-base-v2
 
-Sentence embeddings were generated using:
-
-all-mpnet-base-v2
-
-These embeddings were used to compare:
+Used to generate embeddings for:
 
 Organic posts
 
@@ -142,35 +140,35 @@ Original sponsored posts
 
 Modified sponsored posts
 
-6. Post-Neighbourhood (PN) Distance
+Post-Neighbourhood (PN) Distance
 
-To evaluate style similarity, Post-Neighbourhood (PN) Distance was used.
+PN distance measures how close a sponsored post is to organic posts.
 
 Method
 
 For each sponsored post:
 
-Compute cosine distance to all organic posts.
+Compute cosine distance to all organic posts
 
-Select the K nearest neighbors (K = 5).
+Select K nearest neighbors
 
-Compute the average distance.
+K = 5
 
-Two distance sets were generated:
+Compute average distance
+
+Two lists are created:
 
 Original PN Distances
+Modified PN Distances
+Statistical Testing
 
+A paired t-test compares:
+
+Original PN Distances
+vs
 Modified PN Distances
 
-7. Statistical Testing
-
-A paired t-test was performed to compare:
-
-Original PN distances
-
-Modified PN distances
-
-Metrics calculated:
+Metrics computed:
 
 Mean Original Distance
 
@@ -180,7 +178,7 @@ t-statistic
 
 p-value
 
-Interpretation Rule
+Interpretation
 
 If:
 
@@ -188,186 +186,125 @@ Mean Modified Distance < Mean Original Distance
 
 Then:
 
-AI-generated sponsored content is closer to organic influencer tone.
+AI-generated sponsored posts match influencer tone better.
+Scripts
+comprehensive_pipeline.py
 
-Otherwise:
+End-to-end pipeline:
 
-Original sponsored content is closer to organic influencer tone.
+Load dataset
 
-8. Scripts Developed
-1. analyze_semantic_similarity.py
+Train models
 
-Initial prototype for similarity analysis.
+Generate rewrites
 
-Features:
+Compute distances
 
-Basic cosine similarity
+Save results
 
-Preliminary testing
+semantic_similarity_analysis.py
 
-2. influencer_semantic_similarity.py
+Final production script:
 
-Advanced analysis.
-
-Features:
-
-Influencer-wise PN distance
-
-Statistical testing
-
-Debug outputs
-
-3. semantic_similarity_analysis.py
-
-Final production script.
-
-Features:
-
-3-way comparison
+PN distance computation
 
 Statistical testing
 
 CSV export
 
-Reproducible results
+influencer_semantic_similarity.py
 
-9. Output Files
-similarity_stats.csv
+Advanced analysis:
 
-Columns:
+Influencer-wise evaluation
 
-Model
+Debug outputs
 
-Pairs_Analyzed
+analyze_semantic_similarity.py
 
-Mean_Original_Distance
+Initial prototype script.
 
-Mean_Modified_Distance
+Streamlit App
 
-t_statistic
-
-p_value
-
-Interpretation
-
-final_comprehensive_report.csv
-
-Contains influencer-level statistics:
-
-Influencer
-
-Sponsored Count
-
-Avg Original Distance
-
-Avg Modified Distance
-
-Improvement
-
-final_results.csv
-
-Contains post-level results:
-
-Influencer
-
-Sponsored Post
-
-Modified Post
-
-Original Distance
-
-Modified Distance
-
-Improvement
-
-10. Streamlit Interface
-
-A Streamlit application was developed to interactively test the model.
+Interactive UI for testing rewrites.
 
 Features
 
-Select an influencer
+Select influencer
 
-Enter a sponsored post
+Enter sponsored post
 
-Generate organic-style rewrite
+Generate rewrite
 
 View similarity scores
 
-File:
+Run:
 
-streamlit_app.py
-11. Pipeline Execution
-Install Dependencies
+streamlit run streamlit_app.py
+Installation
+
+Clone repository:
+
+git clone <your-repo-link>
+
+Install dependencies:
+
 pip install -r requirements.txt
+How to Run
 Run Training Pipeline
 python comprehensive_pipeline.py
 Run Semantic Analysis
 python semantic_similarity_analysis.py
-Start Streamlit App
+Run Streamlit App
 streamlit run streamlit_app.py
-12. Example Results
+Output Files
+final_comprehensive_report.csv
 
-A sample run showed:
+Influencer-level statistics:
+
+Influencer
+Sponsored Count
+Avg Original Distance
+Avg Modified Distance
+Improvement
+final_results.csv
+
+Post-level statistics:
+
+Influencer
+Sponsored Post
+Modified Post
+Original Distance
+Modified Distance
+Improvement
+similarity_stats.csv
+
+Statistical results:
+
+Model
+Pairs_Analyzed
+Mean_Original_Distance
+Mean_Modified_Distance
+t_statistic
+p_value
+Interpretation
+Example Result
+
+Sample experiment showed:
 
 AI-generated sponsored posts had lower PN distances
 
-Paired t-test showed statistically significant improvement
+Statistical tests showed significant improvement
 
-Generated posts matched influencer tone better than original sponsored posts.
+Generated posts matched influencer tone better
 
-13. Key Contributions
-
-This project provides:
-
-✔ End-to-end ML pipeline
-✔ Per-influencer fine-tuning
-✔ Semantic similarity evaluation
-✔ Statistical validation
-✔ Interactive UI
-✔ Reproducible experiments
-
-14. Limitations
-
-Some influencers have limited sponsored posts.
-
-Keyword-based sponsored detection may introduce noise.
-
-GPT-2 limits generation quality.
-
-Dataset size affects model performance.
-
-15. Future Improvements
-
-Possible improvements include:
-
-Better sponsored-post detection
-
-Larger datasets
-
-Stronger LLMs
-
-RAG-based generation
-
-Style-aware embeddings
-
-16. Project Status
-
-The project is fully implemented and reproducible.
-
-New data can be added to:
-
-top5_influencers.csv
-
-and the pipeline can be rerun to update results.
-
-17. Technologies Used
+Technologies Used
 
 Python
 
 PyTorch
 
-Hugging Face Transformers
+HuggingFace Transformers
 
 SentenceTransformers
 
@@ -382,3 +319,33 @@ NumPy
 SciPy
 
 Scikit-learn
+
+Limitations
+
+Some influencers have few sponsored posts
+
+Keyword detection may introduce noise
+
+GPT-2 limits generation quality
+
+Dataset size affects performance
+
+Future Work
+
+Possible improvements:
+
+Larger datasets
+
+Better sponsored detection
+
+Stronger LLMs
+
+RAG-based rewriting
+
+Better embeddings
+
+Author
+
+Isha Nayal
+
+AI/ML Developer
