@@ -287,7 +287,7 @@ Output Files
 
 Influencer-level statistics:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   InfluencerSponsored CountAvg Original DistanceAvg Modified DistanceImprovement   `
+`   InfluencerSponsored CountAvg Original DistanceAvg Modified DistanceImprovement   `
 
 ### final\_results.csv
 
@@ -369,4 +369,6 @@ Author
 ------
 
 **Isha Nayal**
+
+AI/ML Developer
 
