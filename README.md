@@ -158,4 +158,4 @@ File: streamlit_app.py
 - Future improvements could include better sponsored detection and stronger generation models.
 
 ## Author
-Internship Project - Influencer Style Rewriter
+Isha Nayal
