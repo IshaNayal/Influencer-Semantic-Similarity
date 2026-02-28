@@ -1,0 +1,2 @@
+Model,Pairs_Analyzed,Mean_Original_Distance,Mean_Modified_Distance,t_statistic,p_value,Interpretation
+all-mpnet-base-v2,10,0.47455007,0.43960875,11.288059,1.2941448e-06,Modified sponsored content is closer to organic influencer tone

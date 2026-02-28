@@ -1,0 +1,54 @@
+Project 2 Report: Influencer Engagement Prediction and Creator-Consistent Rewriting of Sponsored Content (Authenticity Preserving GenAI)
+====================================================================================
+
+Overview
+--------
+This project addresses the challenge of underperforming sponsored influencer posts by developing:
+1. A predictive model for engagement (likes, comments, saves) using multimodal creator data.
+2. A generative rewriting assistant that transforms sponsored drafts into authentic, high-performing organic-style content while preserving sponsor intent and compliance.
+
+Methods
+-------
+- Predictive Model: Used tabular baselines (Elastic Net, Ridge, XGBoost, LightGBM) and advanced models (BERT/RoBERTa embeddings, optional CLIP for images). Sponsorship effects modeled via interaction terms and multi-task learning.
+- Generative Model: Creator-conditioned generation using style exemplars and LoRA adapters. Optimization loop: generate K variants, score with engagement predictor, select best candidate.
+
+Workflow
+--------
+- Dataset: Influencer-level panel with organic, sponsored, and AI-rewritten posts.
+- For each influencer, original and AI-modified sponsored posts are compared to organic posts using sentence embeddings.
+- PN (Post-Neighbourhood) distance is calculated for each sponsored post to its 5 nearest organic posts.
+- Paired t-test assesses statistical significance of improvement.
+- RAGs (Red-Amber-Green) assigned based on improvement and significance.
+
+Results & Stats
+---------------
+Total Data Points:
+- Organic posts: ~5900
+- Training posts: ~6100
+- Top influencer pairs analyzed: 10
+- Sponsored posts per influencer (sample): 10
+
+RAGs Design:
+- Green: AI-modified sponsored content is significantly closer to organic tone (lower PN distance, higher similarity).
+- Amber: Moderate improvement, not statistically significant.
+- Red: No improvement or original sponsored content is closer to organic tone.
+- Thresholds: Based on mean PN distance and t-test p-value (<0.05 is significant).
+
+Ratios for Different Influencers (Sample):
+- Mean Original Distance: 0.4746
+- Mean Modified Distance: 0.4396
+- Improvement Ratio: (0.4746 - 0.4396) / 0.4746 ≈ 7.4%
+- t-statistic: 11.29
+
+
+Example Influencer (soheatherblog):
+- Sponsored Count: 3
+- Avg Original Similarity: 0.6099
+- Avg Modified Similarity: 0.6127
+- Improvement: 0.0027
+
+Conclusion
+----------
+The project demonstrates that AI-generated sponsored content can be rewritten to better match an influencer’s authentic style, resulting in statistically significant improvements in semantic similarity and likely engagement. The workflow is deployable and research-grade, providing both explanatory insights and practical rewriting capability.
+
+For full influencer breakdown and raw scores, see similarity_stats.csv and final_comprehensive_report.csv.

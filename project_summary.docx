@@ -1,0 +1,48 @@
+Influencer Semantic Similarity Analysis
+=====================================
+
+Project Overview
+----------------
+This project analyzes the semantic similarity between influencer organic (non-sponsored) content, original sponsored posts, and AI-generated sponsored posts. The goal is to provide quantitative and statistical evidence that AI-generated sponsored content matches the influencer's natural tone better than the original sponsored content.
+
+Technical Workflow
+------------------
+1. **Data Preparation**
+   - Used datasets: `organic_data.csv`, `training_data.csv`, and `top5_influencers.csv` (with organic, original sponsored, and AI-modified sponsored posts).
+2. **Script Development**
+   - Developed scripts: `analyze_semantic_similarity.py`, `influencer_semantic_similarity.py`, and `semantic_similarity_analysis.py` for similarity analysis and statistical testing.
+3. **Embedding Generation**
+   - Used the `sentence-transformers` library with the `all-mpnet-base-v2` model to generate sentence embeddings for all posts.
+4. **Post-Neighbourhood (PN) Distance Calculation**
+   - For each sponsored post, calculated cosine distances to all organic posts, selected the 5 nearest neighbors, and computed the average (PN distance).
+   - Built two lists: Original PN Distances and Modified PN Distances.
+5. **Statistical Testing**
+   - Performed a paired t-test between the two PN distance lists.
+   - Calculated mean original distance, mean modified distance, t-statistic, and p-value.
+6. **Output and Results**
+   - Results printed in terminal and saved to `similarity_stats.csv`.
+   - Key statistics and interpretation provided.
+
+Statistical Results (Sample Run)
+-------------------------------
+- **Number of influencer pairs analyzed:** 10
+- **Mean Original Distance:** 0.4746
+- **Mean Modified Distance:** 0.4396
+- **t-statistic:** 11.2881
+- **p-value:** 0.0000
+- **Interpretation:** Modified (AI-generated) sponsored content is statistically significantly closer to the influencer’s organic tone than the original sponsored content.
+
+Conclusion
+----------
+The project demonstrates, using sentence embeddings and statistical analysis, that AI-generated sponsored content can better match an influencer’s authentic voice compared to original sponsored posts.
+
+Requirements
+------------
+- Python 3.7+
+- sentence-transformers
+- pandas
+- numpy
+- scipy
+- scikit-learn
+
+Scripts and data files are included in the project directory for reproducibility.

@@ -1,0 +1,91 @@
+Test Cases Extracted
+
+### Influencer: twopeasinablog
+**Test Case 1:**
+Kicking off the Holiday shopping season with @aerosoles. These Wallflower booties with their buckle detail are the perfect neutral everyday bootie!! Today for Black Friday you can get 60% off select s...
+--------------------
+**Test Case 2:**
+I’ll be spending my Winter staying as cozy as possible! So excited to share the wide selection of lounge & pjs available at @nordstrom! How fun are these star print pjs!? ⭐️ Perfect to treat yourself ...
+--------------------
+**Test Case 3:**
+So much sweetness. I adore that she still likes to cuddle. 💗 We were in need of a mattress update and this premium three-layer memory foam @lullbed has been a dream! Are you in need of a comfort updat...
+--------------------
+**Test Case 4:**
+Do you love the Holidays as it’s an excuse to dress up or do you prefer the more casual, relaxed gatherings? Today on the blog I’m sharing 2 completely different looks with @evereveofficial to help yo...
+--------------------
+**Test Case 5:**
+I am so excited to be part of the “Holiday Hop & Shop” at @polarisfashionplace on December 13th at 6:00! There will be shopping, food, drinks, and a fun night showcasing current fashion and makeup tre...
+--------------------
+
+
+### Influencer: soheatherblog
+**Test Case 1:**
+Excited to share these uber chic and extremely comfortable gray loafers by Trotters available on @zappos today on the blog!  These amazing loafers are sure to take you many places in style AND comfort...
+--------------------
+**Test Case 2:**
+A classic black pump is a staple every girl should have in her shoe collection and these by @jreneeshoes are not only incredibly chic, but they’re comfortable too making them a definite must-have! Get...
+--------------------
+**Test Case 3:**
+Had the best time perusing all of the amazing showrooms in @dallasmarket picking out some of my favorite fall finds! This gorgeous fur coat by @diomi was definitely at the top of my list! Swipe right ...
+--------------------
+**Test Case 4:**
+Thank you so much @neutrogena for inviting me to the amazing #rapidu event in Boston! I had the best time meeting so many amazing and inspiring women!! The new #rapidwrinklerepair line will now be a c...
+--------------------
+**Test Case 5:**
+The perfect black heel that can easily be dressed up down proving its versatility! These  gorgeous lizard embossed leather heels are currently 20% off with code LoveJR3 - link is available in my stori...
+--------------------
+
+
+### Influencer: deepika.padukone.the.princess
+**Test Case 1:**
+OMG 😍😍 Deepika Padukone was yesterday shooting for L'Oréal Paris Hair in Greece 😍😘 • • @deepikapadukone @lorealhair @ranveersingh @shaleenanathani @georgiougabriel #deepikapadukone #ranveersingh #lore...
+--------------------
+**Test Case 2:**
+Stunning Deepika Padukone was yesterday shooting for L'Oréal Paris Hair in Greece 😍😍😍 • • @deepikapadukone @lorealhair @ranveersingh @shaleenanathani @georgiougabriel #deepikapadukone #ranveersingh #l...
+--------------------
+**Test Case 3:**
+Deepika Padukone was yesterday shooting for L'Oréal Paris Hair in Greece 🌹🌹😍😍😘 • • @deepikapadukone @lorealhair @ranveersingh @shaleenanathani @georgiougabriel #deepikapadukone #ranveersingh #loreal #...
+--------------------
+**Test Case 4:**
+BTS 😆😆😍 🙌🙌 Padukone and for Asian Paints Royale Health Shield 😍😍😘, #Repost @deepikapadukone 💗 • • @asianpaints @ranveersingh @shaleenanathani @georgiougabriel #deepikapadukone #ranveersingh #asianpain...
+--------------------
+**Test Case 5:**
+Look at my cutie pie 😂😍😍, Deepika Padukone with Aadar Jain, Karan Johar, Ahan Shetty and Shashank Khaitan at deepveer wedding party last night 💞 💞💞 • • @deepikapadukone @karanjohar @ahan.shetty @shash...
+--------------------
+
+
+### Influencer: thesuburbansoapbox
+**Test Case 1:**
+I just spent a few days in Michigan getting a deeper dive into all things pork! Sooo much fun learning about farming practices, production processes, playing with piggies and eating ALL THE PORK! I sh...
+--------------------
+**Test Case 2:**
+I’m gonna need my own olive grove after this trip. 🧡 See what’s brewing in Cali right now in my stories....I’m getting a refresher course with @calripeolives and making charcuterie. It’s kinda the bes...
+--------------------
+**Test Case 3:**
+You NEED this extra cheesy Baked Ziti recipe for Sunday dinner. Like really. There’s a secret to why it’s so totally fantabulous. . . . Get the recipe by clicking the link in my profile @thesuburbanso...
+--------------------
+**Test Case 4:**
+Dark Chocolate Champagne Truffles....to cure a case of the Monday’s tomorrow. 😢 . . . Get the recipe by clicking the link in my profile @thesuburbansoapbox . . . #chocolatelover #champagnepop #truffle...
+--------------------
+**Test Case 5:**
+Pumpkin Spice Caramel Apples. That’s how you do fall y’all. 🍎🍎🍎🍎🍎🍎🍎🍎🍎 . . . Get the recipe by clicking the link in y profile @thesuburbansoapbox . . . #caramelapple #pumpkinspice #happyfallyall #choco...
+--------------------
+
+
+### Influencer: absolutelyairs
+**Test Case 1:**
+Happiness is a Journey not a Destination 😍 Some Days it takes extra effort to choose happiness and other days it’s easy but I do love the journey 💕 Sharing this bag with @apolis today and I have to sa...
+--------------------
+**Test Case 2:**
+Edgy and feminine! A look I’ve always loved but never quite sure I could pull it off!!! This beautiful dress is perfection and I’m sharing more about it later in the week on the blog💕💕 Shop it Early a...
+--------------------
+**Test Case 3:**
+This sweater 😍😍😍 I’ll have a try-on tomorrow! I’m super excited to share with you some new pieces! My video will be up a little late today but it will be up soon💕💕 http://liketk.it/2xp1q #liketkit @li...
+--------------------
+**Test Case 4:**
+Sharing some amazing pieces with @chicwish today on the blog!!! Fully styled!! And I will be trying them on for you in stories later today so stay tuned!!! http://liketk.it/2xpVd #liketkit @liketoknow...
+--------------------
+**Test Case 5:**
+Sharing some sale items I’m loving this Saturday morning on stories💕💕 Also loving this fun Pom Pom cardi!!! http://liketk.it/2xrsL #liketkit @liketoknow.it #LTKstyletip #LTKsalealert #LTKunder50 #LTKu...
+--------------------
+

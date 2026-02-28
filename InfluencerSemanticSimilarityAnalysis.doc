@@ -1,0 +1,70 @@
+Influencer Semantic Similarity Analysis
+
+Project Overview
+This project analyzes the semantic similarity between influencer organic (non-sponsored) content, original sponsored posts, and AI-generated sponsored posts. The goal is to provide quantitative and statistical evidence that AI-generated sponsored content matches the influencer’s natural tone better than the original sponsored content.
+
+Total Data Points
+Organic Posts: ~5900 (organic_data.csv)
+Training Posts: ~6100 (training_data.csv)
+Top Influencer Pairs Analyzed: 10
+Sponsored Posts per Influencer (Sample): ~10
+
+Technical Workflow
+
+1. Data Preparation
+Used datasets: organic_data.csv, training_data.csv, and top5_influencers.csv (with organic, original sponsored, and AI-modified sponsored posts).
+
+2. Script Development
+Developed scripts: analyze_semantic_similarity.py, influencer_semantic_similarity.py, and semantic_similarity_analysis.py for similarity analysis and statistical testing.
+
+3. Embedding Generation
+Used the sentence-transformers library with the all-mpnet-base-v2 model to generate sentence embeddings for all posts.
+
+4. Post-Neighbourhood (PN) Distance Calculation
+For each sponsored post, cosine distances were calculated to all organic posts.
+The 5 nearest neighbors were selected and the average PN distance was computed.
+
+Two lists were created:
+Original PN Distances
+Modified PN Distances
+
+5. Statistical Testing
+Performed a paired t-test between the two PN distance lists.
+Calculated mean original distance, mean modified distance, t-statistic, and p-value.
+
+RAGs Design
+
+Green:
+AI-modified sponsored content is significantly closer to organic tone.
+Lower PN distance and p-value < 0.05.
+
+Amber:
+Moderate improvement but not statistically significant.
+
+Red:
+No improvement or original sponsored content is closer.
+ 
+
+Output and Statistical Results
+Number of influencer pairs analyzed: 10
+Mean Original Distance: 0.4746
+Mean Modified Distance: 0.4396
+T-statistic: 11.2881
+p-value: 0.0001
+Improvement Ratio: 
+Improvement = (0.4746 - 0.4396) / 0.4746
+Improvement ≈ 7.4%
+
+Interpretation
+Modified (AI-generated) sponsored content is statistically significantly closer to the influencer’s organic tone than the original sponsored content.
+
+Conclusion
+
+This project evaluated the semantic similarity between influencer organic posts, original sponsored posts, and AI-generated sponsored posts using sentence embeddings and Post-Neighbourhood (PN) distance analysis.
+The results show that the mean PN distance for AI-generated sponsored posts (0.4396) is lower than that of original sponsored posts (0.4746), indicating that AI-generated content is semantically closer to the influencer’s organic writing style.
+The paired t-test produced a very small p-value (< 0.0001), confirming that the improvement in similarity is statistically significant and not due to random variation.
+Therefore, the analysis provides quantitative evidence that AI-generated sponsored content can better replicate an influencer’s natural tone and style compared to original sponsored posts.
+This suggests that AI-assisted content generation can be an effective tool for producing sponsored posts that align more closely with an influencer’s authentic voice.
+
+
+

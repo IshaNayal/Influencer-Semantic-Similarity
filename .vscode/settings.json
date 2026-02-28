@@ -1,0 +1,14 @@
+{
+    "python.defaultInterpreterPath": "C:\\Users\\isha and gaurav\\OneDrive\\Desktop\\influencer\\.venv\\Scripts\\python.exe",
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.analysis.extraPaths": [
+        "C:\\Users\\isha and gaurav\\OneDrive\\Desktop\\influencer\\.venv\\Lib\\site-packages",
+        "C:\\Users\\isha and gaurav\\OneDrive\\Desktop\\influencer"
+    ],
+    "python.autoComplete.extraPaths": [
+        "C:\\Users\\isha and gaurav\\OneDrive\\Desktop\\influencer\\.venv\\Lib\\site-packages",
+        "C:\\Users\\isha and gaurav\\OneDrive\\Desktop\\influencer"
+    ],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true
+}
