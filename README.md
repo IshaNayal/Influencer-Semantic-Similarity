@@ -1,374 +1,310 @@
 Influencer Style Rewriter & Semantic Similarity Analysis
-========================================================
 
-An end-to-end Machine Learning pipeline that rewrites **sponsored influencer posts into organic-style content** and evaluates how closely AI-generated posts match the influencer’s natural writing style using **semantic similarity and statistical testing**.
+An end-to-end Machine Learning pipeline that rewrites sponsored
+influencer posts into organic-style content and evaluates how closely
+AI-generated posts match the influencer's natural writing style using
+semantic similarity and statistical testing.
 
-This project fine-tunes **per-influencer models**, generates rewrites, and provides **quantitative evidence** that AI-generated sponsored posts resemble organic posts better than original sponsored posts.
+This project fine-tunes per-influencer models, generates rewrites, and
+provides quantitative evidence that AI-generated sponsored posts
+resemble organic posts better than original sponsored posts.
 
 Project Features
-----------------
 
-*   Influencer-specific model training
-    
-*   Sponsored → Organic style rewriting
-    
-*   Semantic similarity analysis
-    
-*   Post-Neighbourhood (PN) distance evaluation
-    
-*   Statistical significance testing (t-test)
-    
-*   Per-influencer evaluation
-    
-*   Streamlit UI for testing rewrites
-    
-*   Reproducible ML pipeline
-    
+Influencer-specific model training
 
-Project Structure
------------------
+Sponsored → Organic style rewriting
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   .│├── comprehensive_pipeline.py├── semantic_similarity_analysis.py├── influencer_semantic_similarity.py├── analyze_semantic_similarity.py│├── streamlit_app.py│├── organic_data.csv├── training_data.csv├── top5_influencers.csv│├── final_results.csv├── final_comprehensive_report.csv├── similarity_stats.csv│└── README.md   `
+Semantic similarity analysis
 
-Problem Statement
------------------
+Post-Neighbourhood (PN) distance evaluation
 
-Sponsored influencer posts often sound unnatural and different from the influencer’s organic content.
+Statistical significance testing (t-test)
+
+Per-influencer evaluation
+
+Streamlit UI for testing rewrites
+
+Reproducible ML pipeline
+
+Project Structure . │ ├── comprehensive_pipeline.py ├──
+semantic_similarity_analysis.py ├── influencer_semantic_similarity.py
+├── analyze_semantic_similarity.py │ ├── streamlit_app.py │ ├──
+organic_data.csv ├── training_data.csv ├── top5_influencers.csv │ ├──
+final_results.csv ├── final_comprehensive_report.csv ├──
+similarity_stats.csv │ └── README.md Problem Statement
+
+Sponsored influencer posts often sound unnatural and different from the
+influencer's organic content.
 
 This project solves this problem by:
 
-*   Learning influencer writing style
-    
-*   Rewriting sponsored posts
-    
-*   Measuring style similarity
-    
-*   Providing statistical validation
-    
+Learning influencer writing style
 
-Workflow
---------
+Rewriting sponsored posts
 
-### 1\. Data Preparation
+Measuring style similarity
+
+Providing statistical validation
+
+Workflow 1. Data Preparation
 
 Datasets used:
 
-### organic\_data.csv
+organic_data.csv
 
 Contains organic (non-sponsored) influencer posts.
 
-### training\_data.csv
+training_data.csv
 
 Contains sponsored posts used during early experiments.
 
-### top5\_influencers.csv
+top5_influencers.csv
 
 Final dataset used for semantic analysis.
 
 Columns:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   non_sponsored_textoriginal_sponsored_textmodified_sponsored_text   `
+non_sponsored_text original_sponsored_text modified_sponsored_text 2.
+Influencer Selection
 
-### 2\. Influencer Selection
-
-The pipeline selects the **top 5 influencers** based on post count.
+The pipeline selects the top 5 influencers based on post count.
 
 For each influencer:
 
-*   Older posts → Training
-    
-*   Recent posts → Evaluation
-    
+Older posts → Training
+
+Recent posts → Evaluation
 
 Evaluation set:
 
-*   Latest 100 posts
-    
-*   10–15 sponsored posts
-    
+Latest 100 posts
+
+10--15 sponsored posts
 
 Sponsored posts are identified using:
 
-*   Dataset labels
-    
-*   Keyword detection (fallback)
-    
+Dataset labels
 
-Model Training
---------------
+Keyword detection (fallback)
 
-### Generator Model
+Model Training Generator Model
 
 Base model:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   GPT-2   `
+GPT-2
 
 Fine-tuning method:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   LoRA (Low Rank Adaptation)   `
+LoRA (Low Rank Adaptation)
 
 Purpose:
 
 Generate organic-style sponsored posts.
 
-### Embedding Model
+Embedding Model
 
 Base model:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sentence-transformers/all-MiniLM-L6-v2   `
+sentence-transformers/all-MiniLM-L6-v2
 
 Training method:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   SimCSE-style contrastive learning   `
+SimCSE-style contrastive learning
 
 Purpose:
 
 Learn influencer writing style.
 
-Semantic Similarity Analysis
-----------------------------
-
-### Embedding Model
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sentence-transformers/all-mpnet-base-v2   `
+Semantic Similarity Analysis Embedding Model
+sentence-transformers/all-mpnet-base-v2
 
 Used to generate embeddings for:
 
-*   Organic posts
-    
-*   Original sponsored posts
-    
-*   Modified sponsored posts
-    
+Organic posts
+
+Original sponsored posts
+
+Modified sponsored posts
 
 Post-Neighbourhood (PN) Distance
---------------------------------
 
 PN distance measures how close a sponsored post is to organic posts.
 
-### Method
+Method
 
 For each sponsored post:
 
-1.  Compute cosine distance to all organic posts
-    
-2.  Select K nearest neighbors
-    
+Compute cosine distance to all organic posts
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   K = 5   `
+Select K nearest neighbors
 
-1.  Compute average distance
-    
+K = 5
+
+Compute average distance
 
 Two lists are created:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Original PN DistancesModified PN Distances   `
+Original PN Distances Modified PN Distances Statistical Testing
 
-Statistical Testing
--------------------
+A paired t-test compares:
 
-A **paired t-test** compares:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Original PN DistancesvsModified PN Distances   `
+Original PN Distances vs Modified PN Distances
 
 Metrics computed:
 
-*   Mean Original Distance
-    
-*   Mean Modified Distance
-    
-*   t-statistic
-    
-*   p-value
-    
+Mean Original Distance
 
-### Interpretation
+Mean Modified Distance
+
+t-statistic
+
+p-value
+
+Interpretation
 
 If:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Mean Modified Distance < Mean Original Distance   `
+Mean Modified Distance \< Mean Original Distance
 
 Then:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   AI-generated sponsored posts match influencer tone better.   `
-
-Scripts
--------
-
-### comprehensive\_pipeline.py
+AI-generated sponsored posts match influencer tone better. Scripts
+comprehensive_pipeline.py
 
 End-to-end pipeline:
 
-*   Load dataset
-    
-*   Train models
-    
-*   Generate rewrites
-    
-*   Compute distances
-    
-*   Save results
-    
+Load dataset
 
-### semantic\_similarity\_analysis.py
+Train models
+
+Generate rewrites
+
+Compute distances
+
+Save results
+
+semantic_similarity_analysis.py
 
 Final production script:
 
-*   PN distance computation
-    
-*   Statistical testing
-    
-*   CSV export
-    
+PN distance computation
 
-### influencer\_semantic\_similarity.py
+Statistical testing
+
+CSV export
+
+influencer_semantic_similarity.py
 
 Advanced analysis:
 
-*   Influencer-wise evaluation
-    
-*   Debug outputs
-    
+Influencer-wise evaluation
 
-### analyze\_semantic\_similarity.py
+Debug outputs
+
+analyze_semantic_similarity.py
 
 Initial prototype script.
 
 Streamlit App
--------------
 
 Interactive UI for testing rewrites.
 
-### Features
+Features
 
-*   Select influencer
-    
-*   Enter sponsored post
-    
-*   Generate rewrite
-    
-*   View similarity scores
-    
+Select influencer
+
+Enter sponsored post
+
+Generate rewrite
+
+View similarity scores
 
 Run:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   streamlit run streamlit_app.py   `
-
-Installation
-------------
+streamlit run streamlit_app.py Installation
 
 Clone repository:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`git clone` 
+git clone `<your-repo-link>`{=html}
 
 Install dependencies:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   pip install -r requirements.txt   `
-
-How to Run
-----------
-
-### Run Training Pipeline
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python comprehensive_pipeline.py   `
-
-### Run Semantic Analysis
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python semantic_similarity_analysis.py   `
-
-### Run Streamlit App
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   streamlit run streamlit_app.py   `
-
-Output Files
-------------
-
-### final\_comprehensive\_report.csv
+pip install -r requirements.txt How to Run Run Training Pipeline python
+comprehensive_pipeline.py Run Semantic Analysis python
+semantic_similarity_analysis.py Run Streamlit App streamlit run
+streamlit_app.py Output Files final_comprehensive_report.csv
 
 Influencer-level statistics:
 
-`   InfluencerSponsored CountAvg Original DistanceAvg Modified DistanceImprovement   `
-
-### final\_results.csv
+Influencer Sponsored Count Avg Original Distance Avg Modified Distance
+Improvement final_results.csv
 
 Post-level statistics:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   InfluencerSponsored PostModified PostOriginal DistanceModified DistanceImprovement   `
-
-### similarity\_stats.csv
+Influencer Sponsored Post Modified Post Original Distance Modified
+Distance Improvement similarity_stats.csv
 
 Statistical results:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ModelPairs_AnalyzedMean_Original_DistanceMean_Modified_Distancet_statisticp_valueInterpretation   `
-
-Example Result
---------------
+Model Pairs_Analyzed Mean_Original_Distance Mean_Modified_Distance
+t_statistic p_value Interpretation Example Result
 
 Sample experiment showed:
 
-*   AI-generated sponsored posts had lower PN distances
-    
-*   Statistical tests showed significant improvement
-    
-*   Generated posts matched influencer tone better
-    
+AI-generated sponsored posts had lower PN distances
+
+Statistical tests showed significant improvement
+
+Generated posts matched influencer tone better
 
 Technologies Used
------------------
 
-*   Python
-    
-*   PyTorch
-    
-*   HuggingFace Transformers
-    
-*   SentenceTransformers
-    
-*   LoRA
-    
-*   Streamlit
-    
-*   Pandas
-    
-*   NumPy
-    
-*   SciPy
-    
-*   Scikit-learn
-    
+Python
+
+PyTorch
+
+HuggingFace Transformers
+
+SentenceTransformers
+
+LoRA
+
+Streamlit
+
+Pandas
+
+NumPy
+
+SciPy
+
+Scikit-learn
 
 Limitations
------------
 
-*   Some influencers have few sponsored posts
-    
-*   Keyword detection may introduce noise
-    
-*   GPT-2 limits generation quality
-    
-*   Dataset size affects performance
-    
+Some influencers have few sponsored posts
+
+Keyword detection may introduce noise
+
+GPT-2 limits generation quality
+
+Dataset size affects performance
 
 Future Work
------------
 
 Possible improvements:
 
-*   Larger datasets
-    
-*   Better sponsored detection
-    
-*   Stronger LLMs
-    
-*   RAG-based rewriting
-    
-*   Better embeddings
-    
+Larger datasets
+
+Better sponsored detection
+
+Stronger LLMs
+
+RAG-based rewriting
+
+Better embeddings
 
 Author
-------
 
-**Isha Nayal**
-
-AI/ML Developer
+Isha Nayal
 
