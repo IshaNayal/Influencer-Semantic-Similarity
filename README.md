@@ -1,4 +1,4 @@
-Influencer Style Rewriter & Semantic Similarity Analysis
+#Influencer Style Rewriter & Semantic Similarity Analysis
 
 Internship Project Report
 Author: Isha Nayal
